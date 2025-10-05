@@ -90,11 +90,6 @@
   # Optimize images automatically
   compress = true
 
-# Functions configuration (if needed for future enhancements)
-[functions]
-  # Directory for serverless functions
-  directory = "netlify/functions"
-
 # Development settings
 [dev]
   # Local development server settings
@@ -102,11 +97,6 @@
   port = 5173
   publish = "dist"
   autoLaunch = false
-
-# Plugin configuration for additional optimizations
-[[plugins]]
-  # Essential Netlify plugin for SPA
-  package = "@netlify/plugin-essential-next-js"
 
 # Form handling (if forms are added later)
 [forms]
@@ -116,5 +106,5 @@
 # Analytics and monitoring (optional)
 [template.environment]
   # Environment variables that can be set in Netlify UI
-  VITE_APP_NAME = "BIN to JPG Converter"
+  VITE_APP_NAME = "Universal File Converter"
   VITE_APP_VERSION = "1.0.0"
