@@ -1,0 +1,61 @@
+{
+  "name": "universal-file-converter",
+  "displayName": "Universal File Converter",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A modern, professional file converter application with multi-file support and batch processing capabilities. Transform your files with ease and precision.",
+  "keywords": ["react", "typescript", "file-converter", "universal-converter", "file-conversion", "drag-drop", "batch-processing", "multi-file"],
+  "author": "Anurag007m <anurag007m@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://your-app-name.netlify.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/imageconverter.git"
+  },
+  "scripts": {
+    "dev": "vite --host",
+    "build": "tsc -b && vite build",
+    "build:analyze": "npm run build && npx vite-bundle-analyzer dist/assets/*.js",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext ts,tsx --fix",
+    "preview": "vite preview --host",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist node_modules/.vite",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@types/node": "^24.6.0",
+    "@types/react": "^19.1.16",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.4",
+    "eslint": "^9.36.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.22",
+    "globals": "^16.4.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.45.0",
+    "vite": "^7.1.7"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

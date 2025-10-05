@@ -1,0 +1,120 @@
+# Netlify Configuration File
+# Optimized settings for React SPA deployment
+
+[build]
+  # Build command - uses Vite's optimized build process
+  command = "npm run build"
+  
+  # Directory containing the built static files
+  publish = "dist"
+  
+  # Environment variables for build process
+  [build.environment]
+    # Node.js version for consistent builds
+    NODE_VERSION = "18"
+    
+    # Enable production optimizations
+    NODE_ENV = "production"
+    
+    # Vite build optimizations
+    VITE_BUILD_SOURCEMAP = "false"
+
+# Single Page Application (SPA) routing configuration
+# Ensures all routes are handled by React Router
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Security headers for enhanced protection
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Prevent clickjacking attacks
+    X-Frame-Options = "DENY"
+    
+    # Prevent MIME type sniffing
+    X-Content-Type-Options = "nosniff"
+    
+    # Enable XSS protection
+    X-XSS-Protection = "1; mode=block"
+    
+    # Referrer policy for privacy
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Content Security Policy (basic)
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:;"
+
+# Cache optimization for static assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    # Cache static assets for 1 year
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache optimization for HTML files
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    # Don't cache HTML files to ensure updates are reflected
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Cache optimization for service worker (if added later)
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    # Don't cache service worker
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Performance optimizations
+[build.processing]
+  # Skip processing for already optimized files
+  skip_processing = false
+
+[build.processing.css]
+  # Minify CSS files
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  # Minify JavaScript files
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  # Minify HTML files
+  pretty_urls = true
+  minify = true
+
+[build.processing.images]
+  # Optimize images automatically
+  compress = true
+
+# Functions configuration (if needed for future enhancements)
+[functions]
+  # Directory for serverless functions
+  directory = "netlify/functions"
+
+# Development settings
+[dev]
+  # Local development server settings
+  command = "npm run dev"
+  port = 5173
+  publish = "dist"
+  autoLaunch = false
+
+# Plugin configuration for additional optimizations
+[[plugins]]
+  # Essential Netlify plugin for SPA
+  package = "@netlify/plugin-essential-next-js"
+
+# Form handling (if forms are added later)
+[forms]
+  # Enable Netlify form handling
+  spam_protection = true
+
+# Analytics and monitoring (optional)
+[template.environment]
+  # Environment variables that can be set in Netlify UI
+  VITE_APP_NAME = "BIN to JPG Converter"
+  VITE_APP_VERSION = "1.0.0"

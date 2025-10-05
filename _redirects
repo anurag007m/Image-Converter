@@ -1,0 +1,10 @@
+# Netlify Redirects File
+# Backup configuration for Single Page Application routing
+# This ensures all routes are handled by React Router
+
+# Redirect all requests to index.html for SPA routing
+/*    /index.html   200
+
+# Optional: Redirect old URLs or handle specific cases
+# /old-path    /new-path    301
+# /api/*       https://api.example.com/:splat    200
